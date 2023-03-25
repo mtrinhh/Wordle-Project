@@ -1,0 +1,53 @@
+* {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    /* background-color: mistyrose; */
+    border: 1px solid red;
+}
+
+html, body {
+    height: 100%;
+}
+
+#container {
+    text-align: center;
+}
+
+#grid-container {
+    display: flex;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.squares {
+    border: 2px solid green;
+    min-width: 50px;
+    min-height: 50px
+}
+
+#keyboard-container {
+    height: 200px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.keyboard-row button {
+    border: 0;
+    padding: 0;
+    height: 50px;
+    flex-grow: 1;
+    margin-right: 6px;
+    border-radius: 4px;
+}
