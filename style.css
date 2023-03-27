@@ -2,8 +2,12 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0;
-    /* background-color: mistyrose; */
-    border: 1px solid red;
+    background-color: #e9ddc7;
+    /* border: 1px solid red; */
+}
+
+hr {
+    width: 70%;
 }
 
 html, body {
@@ -27,7 +31,7 @@ html, body {
 }
 
 .squares {
-    border: 2px solid green;
+    border: 2px solid #a3a990;
     min-width: 50px;
     min-height: 50px
 }
@@ -39,7 +43,8 @@ html, body {
 .keyboard-row {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 70%;
+    height: 30%;
     margin: 0 auto;
 }
 
@@ -50,4 +55,11 @@ html, body {
     flex-grow: 1;
     margin-right: 6px;
     border-radius: 4px;
+    background-color: #a3a990;
+    border-radius: 10px;
 }
+
+[data-key]  {
+    color: #e9ddc7;
+}
+
