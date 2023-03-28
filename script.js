@@ -4,23 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
     let guessedWords = [[]]
     let availableSpace = 1
 
-    const keys = document.querySelectorAll('.keyboard-row')
+    let word = 'HELLO'
 
-    function handleClick(event) {
-      const target = event.target;
-      const letter = target.getAttribute('data-key');
-    // console.log(letter);
-      updateGuessedWord(letter);
-    }
-    for (let i = 0; i < keys.length; i++) {
-       keys[i].onclick = handleClick;
-    }
+    const keys = document.querySelectorAll('.keyboard-row')
 
 
     function getCurrentWordArray() {
         const numberOfGuessedWords = guessedWords.length;
         return guessedWords[numberOfGuessedWords - 1];
       }
+
 
 
     function updateGuessedWord(letter) {
@@ -37,6 +30,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
+
+    function handleSubmitWord() {
+        const currentWordArray = getCurrentWordArray()
+        if (currentWordArray.length !==5) {
+            alert ('Must be 5 letters')
+            return
+        }
+
+        const currentWord = currentWordArray.join('')
+
+        if (currentWord === word) {
+            alert ('You Win!')
+        }
+
+
+        if (guessedWords.length === 6) {
+            alert (`No more guesses! The word is ${word}. Refresh page to play again`)
+        }
+
+        guessedWords.push([])
+    }
+
+
+
     function createSquares() {
         const gridBoard = document.getElementById('grid');
 
@@ -47,6 +64,24 @@ document.addEventListener('DOMContentLoaded', function() {
             gridBoard.appendChild(squares);
         }
     }
+
+
+
+    function handleClick(event) {
+        const target = event.target;
+        const letter = target.getAttribute('data-key');
+      // console.log(letter);
+
+        if (letter === 'enter') {
+            handleSubmitWord()
+            return
+        }
+
+        updateGuessedWord(letter);
+      }
+      for (let i = 0; i < keys.length; i++) {
+         keys[i].onclick = handleClick;
+      }
 
 
 

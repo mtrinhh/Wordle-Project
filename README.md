@@ -86,3 +86,46 @@ function updateGuessedWord(letter) {
   }
 }
 ```
+
+4. When the user clicks the "Enter" button, it submits the guessed word. Check if the guessedWord equals word ('HELLO'), alert the result.
+   
+   ```js
+    function handleSubmitWord() {
+
+        // get the current word array
+        const currentWordArray = getCurrentWordArray()
+
+        // check if the length of the current word array is not equal to 5
+        if (currentWordArray.length !==5) {
+            alert ('Must be 5 letters')
+            return
+        }
+
+    // join the letters in the current word array to form a word
+        const currentWord = currentWordArray.join('')
+
+    // check if the current word is equal to the word to guess  
+        if (currentWord === word) {
+            alert ('You Win!')
+        }
+
+        //if guessedWords is not equal to word in 6 tries, alert user the correct word
+        if (guessedWords.length === 6) {
+            alert (`No more guesses! The word is ${word}`)
+        }
+
+    // add an empty array to the guessedWords array
+        guessedWords.push([])
+    }
+   ```
+
+   5. Call the handleSubmitWord() in the HandleClick() using if statement. I hard coded the work 'HELLO' so i can check if it works
+
+```js
+    let word = 'HELLO'
+
+    if (letter === 'enter') {
+         handleSubmitWord()
+         return
+     }
+```
