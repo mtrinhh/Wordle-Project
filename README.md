@@ -12,11 +12,13 @@
 ```js
 // Define a function called createSquares
 function createSquares() {
+
     // Select the HTML element with the id "grid" and store it in a variable called gridBoard
     const gridBoard = document.getElementById('grid');
 
     // Loop through 30 times using a for loop
     for (let index = 0; index < 30; index++) {
+
         // Create a new HTML element called "div" and store it in a variable called squares
         let squares = document.createElement('div');
         
@@ -44,10 +46,8 @@ function createSquares() {
 function handleClick(event) {
 
   // Get the target element that was clicked
-  const target = event.target;
-
   // Get the value of the data-key attribute on the clicked element
-  const letter = target.getAttribute('data-key');
+  const letter = event.target.dataset.key;;
 }
 
 // Select all the button elements in the keyboard and set their onclick handler to the handleClick function
@@ -89,7 +89,7 @@ function updateGuessedWord(letter) {
 
 4. When the user clicks the "Enter" button, it submits the guessed word. Check if the guessedWord equals word ('HELLO'), alert the result.
    
-   ```js
+```js
     function handleSubmitWord() {
 
         // get the current word array
@@ -119,7 +119,7 @@ function updateGuessedWord(letter) {
     }
    ```
 
-   5. Call the handleSubmitWord() in the HandleClick() using if statement. I hard coded the work 'HELLO' so i can check if it works
+5. Call the handleSubmitWord() in the HandleClick() using if statement. I hard coded the work 'HELLO' so i can check if it works
 
 ```js
     let word = 'HELLO'
@@ -128,4 +128,30 @@ function updateGuessedWord(letter) {
          handleSubmitWord()
          return
      }
+```
+
+5. Function to delete the last letter from getCurrentWordArray using pop. The updated current word array is then stored in the guessedWords array
+
+```js
+let guessedWords = [[]]
+
+function handleDeleteLetter() {
+  // Get the current word array
+  const currentWordArray = getCurrentWordArray()
+
+  // Remove the last letter from the current word array
+  const removeLetter = currentWordArray.pop
+
+  // Replace the last array in guessedWords with the updated currentWordArray
+  guessedWords[guessedWords.length - 1] = currentWordArray
+
+  // Get the element for the last letter that was added
+  const lastLetterElement = document.getElementById(availableSpace - 1)
+
+  // Clear the text content of the last letter element
+  lastLetterElement.textContent = ''
+
+  // Decrement availableSpace to update the ID of the last letter element
+  availableSpace = availableSpace - 1
+}
 ```

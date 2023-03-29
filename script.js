@@ -66,14 +66,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
+    function handleDeleteLetter() {
+        const currentWordArray = getCurrentWordArray()
+        const removeLetter = currentWordArray.pop
+
+        guessedWords[guessedWords.length - 1] = currentWordArray
+
+        const lastLetterElement = document.getElementById(availableSpace - 1)
+
+        lastLetterElement.textContent = ''
+        availableSpace = availableSpace - 1
+    }
+
+
 
     function handleClick(event) {
-        const target = event.target;
-        const letter = target.getAttribute('data-key');
-      // console.log(letter);
+        const letter = event.target.dataset.key;
 
         if (letter === 'enter') {
             handleSubmitWord()
+            return
+        }
+
+        if (letter === 'delete') {
+            handleDeleteLetter()
             return
         }
 
