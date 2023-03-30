@@ -69,3 +69,10 @@ html, body {
     color: #e9ddc7;
 }
 
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: yellow;
+  }
