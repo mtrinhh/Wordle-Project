@@ -155,3 +155,18 @@ function handleDeleteLetter() {
   availableSpace = availableSpace - 1
 }
 ```
+
+6. If statment to check if letter is in the right postion and turn green
+
+```js
+let squareCounter = 0
+
+    // Check if the letter is in the correct position
+    const position = currentWordArray.length - 1
+                
+    if (word[position] === letter) {
+        // If the letter is in the correct position, add a CSS class to the square element
+        const squareElement = document.getElementById(squareCounter)
+        squareElement.classList.add('correct')
+    }    
+```
