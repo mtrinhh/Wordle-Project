@@ -156,17 +156,27 @@ function handleDeleteLetter() {
 }
 ```
 
-6. If statment to check if letter is in the right postion and turn green
+6. If statment to check if letter is in the right postion and turn green. If letter is in wrong position turn yellow
 
 ```js
 let squareCounter = 0
 
-    // Check if the letter is in the correct position
-    const position = currentWordArray.length - 1
+squareCounter++;
+
+// Check if the letter is in the correct position
+const position = currentWordArray.length - 1
                 
     if (word[position] === letter) {
         // If the letter is in the correct position, add a CSS class to the square element
-        const squareElement = document.getElementById(squareCounter)
-        squareElement.classList.add('correct')
+        const squareElement = document.getElementById(squareCounter);
+        squareElement.classList.add('correct');
+    } else {
+        // check if the letter is in the word but in the wrong position
+        for (let i = 0; i < word.length; i++) {
+            if (word[i] === letter) {
+                const squareElement = document.getElementById(squareCounter);
+                squareElement.classList.add('almost');
+            }
+        }
     }    
 ```

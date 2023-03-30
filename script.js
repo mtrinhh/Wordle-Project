@@ -20,26 +20,33 @@ function getCurrentWordArray() {
 
 
 
+
 function updateGuessedWord(letter) {
-    const currentWordArray = getCurrentWordArray()
-
+    const currentWordArray = getCurrentWordArray();
+    console.log('it runs outside');
     if (currentWordArray && currentWordArray.length < 5) {
-        currentWordArray.push(letter)
-        // console.log(guessedWords);
-        // console.log(squareCounter);
-        let availableSpaceElement = document.getElementById(availableSpace)
+        console.log('it runs inside');
+        currentWordArray.push(letter);
+        let availableSpaceElement = document.getElementById(availableSpace);
+        availableSpace = availableSpace + 1;
+        availableSpaceElement.textContent = letter;
+        squareCounter++;
 
-        availableSpace = availableSpace + 1
-        availableSpaceElement.textContent = letter
-        squareCounter++
-
-                // Check if the letter is in the correct position
-                const position = currentWordArray.length - 1
-                if (word[position] === letter) {
-                    // If the letter is in the correct position, add a CSS class to the square element
-                    const squareElement = document.getElementById(squareCounter)
-                    squareElement.classList.add('correct')
-                } 
+        // Check if the letter is in the correct position
+        const position = currentWordArray.length - 1;
+        if (word[position] === letter) {
+            // If the letter is in the correct position, add a CSS class to the square element
+            const squareElement = document.getElementById(squareCounter);
+            squareElement.classList.add('correct');
+        } else {
+            // check if the letter is in the word but in the wrong position
+            for (let i = 0; i < word.length; i++) {
+                if (word[i] === letter) {
+                    const squareElement = document.getElementById(squareCounter);
+                    squareElement.classList.add('almost');
+                }
+            }
+        }
     }
 }
 
