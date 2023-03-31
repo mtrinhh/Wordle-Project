@@ -180,3 +180,16 @@ const position = currentWordArray.length - 1
         }
     }    
 ```
+
+7. Use Math.floor and Math.random to get random index from validWords array.
+
+```js
+// generate a random index between 0 and the length of the array minus 1
+const randomIndex = Math.floor(Math.random() * validWords.length);
+
+// access the element at the random index
+const randomWord = validWords[randomIndex];
+
+// show the randomWord
+console.log(randomWord)
+```
