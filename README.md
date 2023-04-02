@@ -130,7 +130,7 @@ function updateGuessedWord(letter) {
      }
 ```
 
-5. Function to delete the last letter from getCurrentWordArray using pop. The updated current word array is then stored in the guessedWords array
+6. Function to delete the last letter from getCurrentWordArray using pop. The updated current word array is then stored in the guessedWords array
 
 ```js
 let guessedWords = [[]]
@@ -156,7 +156,7 @@ function handleDeleteLetter() {
 }
 ```
 
-6. If statment to check if letter is in the right postion and turn green. If letter is in wrong position turn yellow
+7. If statment to check if letter is in the right postion and turn green. If letter is in wrong position turn yellow
 
 ```js
 let squareCounter = 0
@@ -181,7 +181,7 @@ const position = currentWordArray.length - 1
     }    
 ```
 
-7. Use Math.floor and Math.random to get random index from validWords array.
+8. Use Math.floor and Math.random to get random index from validWords array.
 
 ```js
 // generate a random index between 0 and the length of the array minus 1
